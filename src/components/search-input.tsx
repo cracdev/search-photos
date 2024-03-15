@@ -7,7 +7,7 @@ type Props = {
 
 export const SearchInput: React.FC<Props> = ({ setFilterParam, callSearch }) => {
   const [searchQuery, setSearchQuery] = React.useState<string>('')
-  const debouncedSearchQuery = useDebounce(searchQuery, 300);
+  const debouncedSearchQuery = useDebounce(searchQuery, 400);
   
   const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(event.target.value)

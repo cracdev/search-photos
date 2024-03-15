@@ -8,24 +8,25 @@ type Props = {
 };
 
 export const Search: React.FC<Props> = ({ setParams, isError }) => {
-  const [orientationFilterParam, setOrientationFilterParam] = React.useState<
-    string | null
-  >(null);
-  const [colorFilterParam, setColorFilterParam] = React.useState<string | null>(
-    null,
-  );
+  const [orientationFilterParam, setOrientationFilterParam] = React.useState<string | null>(null);
+  const [colorFilterParam, setColorFilterParam] = React.useState<string | null>(null);
   const [searchQuery, setSearchQuery] = React.useState<string | null>(null);
 
   const getImages = () => {
     if (searchQuery) {
       const params = {
         query: searchQuery,
-        ...(colorFilterParam && { color: colorFilterParam }),
-        ...(orientationFilterParam && { orientation: orientationFilterParam }),
+        ...((colorFilterParam && colorFilterParam !=='all') && { color: colorFilterParam }),
+        ...((orientationFilterParam && orientationFilterParam !=='all') && { orientation: orientationFilterParam }),
       };
       setParams(toQueryString(params));
     }
   };
+
+  React.useEffect(() => {
+    getImages();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[searchQuery])
 
   return (
     <>
