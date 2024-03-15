@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Reset */
+#root {
+  @apply mx-auto h-screen w-screen max-w-7xl py-8 md:px-16;
+}
+
+*,
+html,
+body {
+  @apply box-border;
+}
+
+html,
+body {
+  @apply mx-0 mb-8 w-screen;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-bold leading-tight first:mt-0;
+}
+
+h1 {
+  @apply text-4xl leading-tight;
+}
+
+header h1 {
+  @apply underline decoration-primary-400 decoration-4 underline-offset-4;
+}
+
+h2 {
+  @apply text-3xl;
+}
+
+h3 {
+  @apply text-2xl;
+}
+
+h4 {
+  @apply text-xl;
+}
+
+h5 {
+  @apply text-lg;
+}
+
+h6 {
+  @apply text-base;
+}
+
+p,
+ul,
+ol,
+dl {
+  @apply leading-relaxed;
+}
+
+.search-input-color {
+  @apply border-2 border-primary-700 bg-primary-50 p-2 placeholder-primary-400 accent-primary-600 shadow-sm outline-none transition-all ease-in out-of-range:border-error-800 out-of-range:bg-error-200 hover:bg-primary-100 hover:accent-primary-700 focus:bg-primary-100 disabled:border-slate-500 disabled:bg-slate-100 disabled:placeholder-slate-400;
+}
